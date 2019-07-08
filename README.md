@@ -7,9 +7,9 @@ I think that a typical alarm clock isn't enough to wake you up. My theory is tha
 # The solution
 
 I've created a two-parts solution to be able to drive your TV and your Playstation 4 to wake you up at the right time. An "Arduino" device is activated by yourself (by a single button) when you go sleeping, then it sends a single request to the Web Service Driver to retrieve all the commands that the Arduino will execute. The commands are a totally custom creation of myself, a new protocol, to tell the Arduino what to do exactly. The WS is already developped to drive the Arduino and provide these features in order:
-	1. Close the TV and PS4 after a timer period (usefull to shutdown your TV and PS4 when you fall asleep, without caring about shuting down the devices).
-	2. Start all the devices needed and go to open video content according to the formula you chose.
-	3. Close all the devices after all the medias content have been displayed (or just after a maximum activation time).
+1. Close the TV and PS4 after a timer period (usefull to shutdown your TV and PS4 when you fall asleep, without caring about shuting down the devices).
+2. Start all the devices needed and go to open video content according to the formula you chose.
+3. Close all the devices after all the medias content have been displayed (or just after a maximum activation time).
 
 
 # Web Service Driver
