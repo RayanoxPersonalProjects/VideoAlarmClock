@@ -41,34 +41,38 @@ void executeAction(Command * command) {
       break;
       
     case 'S':
-      if(command->parameter == NULL) {
-        Serial.println("Parameter could not be null with this command");
-        exit;
+      {
+        if(command->parameter == NULL) {
+          Serial.println("Parameter could not be null with this command");
+          exit(-4);
+        }
+        unsigned long delayTimeSeconds = (long) *command->parameter;
+        Log("Sleep %lu seconds", delayTimeSeconds);
+        delay(delayTimeSeconds * 1000);
       }
-      unsigned long delayTimeSeconds = parseLong(*command->parameter);
-      delay(delayTimeSeconds * 1000);
       break;
     case 'K':
       Serial.println("Command not implemented yet");
-      exit;
+      exit(-5);
     case 'G':
       Serial.println("Command not implemented yet");
-      exit;
+      exit(-5);
       
     default:
       Serial.println("The command received is unknown");
-      exit;
+      exit(-6);
   }
 }
 
+/*
 long* parseLong(char* string) {
   long* i;
   sscanf(string, "%l", i);
   return i;
-}
+}*/
 
-int extractNextParam(String commands) {
-  int result = NULL;
+int* extractNextParam(String commands) {
+  int* result = NULL;
   String parameterString = "";
 
   i++; // Go to next char
@@ -84,7 +88,8 @@ int extractNextParam(String commands) {
 
   if(parameterString != "") {
     //conversion to result
-    result = parameterString.toInt();
+    result = (int*) malloc(sizeof(int));
+    *result = parameterString.toInt();
   }
 
   return result;
