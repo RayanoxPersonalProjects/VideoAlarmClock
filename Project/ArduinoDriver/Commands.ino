@@ -57,7 +57,12 @@ void executeAction(Command * command) {
     case 'G':
       Serial.println("Command not implemented yet");
       exit(-5);
-      
+    case 'u':
+      Serial.println("Command not implemented yet");
+      exit(-5);
+    case 'd':
+      Serial.println("Command not implemented yet");
+      exit(-5);
     default:
       Serial.println("The command received is unknown");
       exit(-6);
